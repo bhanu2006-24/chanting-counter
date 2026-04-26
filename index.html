@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mantra Jaap Counter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mukta:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="selection-screen" class="screen page-enter">
+        <h1 class="main-title">Choose Your Mantra</h1>
+        <p class="subtitle">Select a mantra to begin your japa practice.</p>
+        
+        <div class="mantra-grid">
+            <div class="mantra-card" onclick="selectMantra('radha')">
+                <div class="mantra-icon radha-icon"><i class="fas fa-om"></i></div>
+                <h2>Radha</h2>
+                <div class="radha-text">राधा</div>
+                <p>Tap to start chanting</p>
+            </div>
+            
+            <div class="mantra-card" onclick="selectMantra('harivansh')">
+                <div class="mantra-icon hari-icon"><i class="fas fa-om"></i></div>
+                <h2>Harivansh</h2>
+                <div class="hari-text">हरिवंश</div>
+                <p>Tap to start chanting</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="counter-screen" class="screen hidden">
+        <div class="top-nav">
+            <button onclick="goBack()" class="back-btn"><i class="fas fa-arrow-left"></i> Home</button>
+            <button onclick="resetData()" class="reset-btn" title="Reset Stats"><i class="fas fa-rotate-right"></i> Reset</button>
+        </div>
+
+        <h1 id="mantra-title" class="hindi-title">राधा नाम जप</h1>
+        
+        <div class="timer-container">
+            <i class="far fa-clock"></i>
+            <span id="timer-display">00:00:00</span>
+        </div>
+        
+        <div class="counter-container">
+            <!-- Floating elements container -->
+            <div id="floating-container"></div>
+            
+            <div class="progress-ring-container" id="tap-area">
+                <svg class="progress-ring" width="240" height="240">
+                    <circle class="progress-ring__circle bg" stroke="#e9ecef" stroke-width="12" fill="transparent" r="110" cx="120" cy="120"/>
+                    <circle id="progress-circle" class="progress-ring__circle current" stroke="#ff7b3a" stroke-width="12" fill="transparent" r="110" cx="120" cy="120" stroke-linecap="round"/>
+                </svg>
+                <div class="count-display" id="count-bg">
+                    <span id="current-count">0</span>
+                </div>
+            </div>
+            <p class="tap-hint">Tap anywhere to count</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><img src="https://cdn-icons-png.flaticon.com/512/8207/8207914.png" alt="Malas" width="28"></div>
+                <div class="stat-label">Malas</div>
+                <div class="stat-value" id="stat-malas">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><img src="https://cdn-icons-png.flaticon.com/512/2855/2855214.png" alt="Total" width="28"></div>
+                <div class="stat-label">Total Japa</div>
+                <div class="stat-value" id="stat-total">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><img src="https://cdn-icons-png.flaticon.com/512/4813/4813138.png" alt="Today" width="28"></div>
+                <div class="stat-label">Today's Japa</div>
+                <div class="stat-value" id="stat-today">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
